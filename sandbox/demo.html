@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<body>
+ <h1>PR#140</h1>
+<h2>WAT?</h2>
+<p>Testing out the enhanced coffeescript highlighting mode, courtesy of <a href="https://github.com/isagalaev/highlight.js/pull/140">Cédric Néhémie</a>.</p>
+<h2>Main Example</h2>
+<pre><code>mixin <span class="operators">=</span> <span class="hash"><span class="hash_begin">{</span>
+  <span class="property">foo<span class='punctuation'>:</span></span> <span class="group"><span class="group_begin">(</span>a<span class="operators">=</span><span class="string"><span class="string_begin">"</span>default<span class="string_end">"</span></span><span class="punctuation">,</span> b<span class="operators">=</span><span class="hash"><span class="hash_begin">{</span><span class="property">x<span class='punctuation'>:</span></span><span class="number">10</span><span class="punctuation">,</span><span class="property">y<span class='punctuation'>:</span></span><span class="number">20</span><span class="hash_end">}</span></span><span class="punctuation">,</span> c<span class="operators">=</span><span class="group"><span class="group_begin">(</span><span class="number">1.2</span> <span class="operators">*</span> <span class="number">455</span><span class="group_end">)</span></span> <span class="operators">/</span> <span class="number">7</span><span class="group_end">)</span></span> <span class="function">-></span> <span class="regexp">/default/</span><span class="punctuation">.</span>exec m
+
+  <span class="property">get<span class='punctuation'>:</span></span> <span class="group"><span class="group_begin">(</span>id<span class="operators">=</span><span class="group"><span class="group_begin">(</span><span class="keyword">if</span> b<span class="operators">?</span> <span class="keyword">then</span> <span class="string"><span class="string_begin">'</span>A<span class="string_end">'</span></span> <span class="keyword">else</span> <span class="string"><span class="string_begin">'</span>B<span class="string_end">'</span></span><span class="group_end">)</span></span><span class="punctuation">,</span> b<span class="operators">=</span><span class="literal">true</span><span class="group_end">)</span></span> <span class="function">-></span> <span class="property">@member</span><span class="punctuation">[</span>id<span class="punctuation">]</span>
+
+  <span class="property">prop<span class='punctuation'>:</span></span> <span class="number">10</span>
+
+  <span class="property">meta<span class='punctuation'>:</span></span> <span class="class"><span class="keyword">class</span> <span class='title'>Meta</span></span>
+    <span class="property">@interpolate<span class='punctuation'>:</span></span> <span class="heredocs"><span class="heredocs_begin">"""</span>
+        ... <span class="subst"><span class="subst_begin">#{</span>
+          <span class="class"><span class="keyword">class</span> <span class='title'>Foo</span></span>
+            <span class="property">get<span class='punctuation'>:</span></span> <span class="group"><span class="group_begin">(</span>x<span class="group_end">)</span></span> <span class="function">-></span> <span class="keyword">if</span> <span class="regexp">/<span class="regexp_operators">^</span><span class="char_range"><span class="char_range_begin">[</span>abc<span class="char_range_end">]</span></span>/g</span><span class="punctuation">.</span>test x <span class="keyword">then</span> <span class="string"><span class="string_begin">"</span><span class="subst"><span class="subst_begin">#{</span>x<span class="subst_end">}</span></span>t<span class="string_end">"</span></span> <span class="keyword">else</span> x
+
+          <span class="keyword">new</span> <span class="constant">Foo</span><span class="group"><span class="group_begin">(</span><span class="group_end">)</span></span><span class="punctuation">.</span>get <span class="string"><span class="string_begin">'</span>bar<span class="string_end">'</span></span>
+      <span class="subst_end">}</span></span> ...
+      <span class="heredocs_end">"""</span></span>
+<span class="hash_end">}</span></span></code></pre>
+<h2>Native</h2>
+<pre><code><span class="global">require</span> <span class="string"><span class="string_begin">'</span>foo<span class="string_end">'</span></span>
+<span class="global">module</span><span class="punctuation">.</span><span class="global">exports</span> <span class="operators">=</span> <span class="hash"><span class="hash_begin">{</span><span class="hash_end">}</span></span>
+<span class="global">exports</span><span class="punctuation">.</span>foo <span class="operators">=</span> <span class="function">-></span>
+<span class="global">console</span><span class="punctuation">.</span>log <span class="string"><span class="string_begin">'</span>foo<span class="string_end">'</span></span>
+<span class="global">print</span> bar</code></pre>
+<h2>Assignment</h2>
+<pre><code>number <span class="operators">=</span> <span class="number">42</span>
+opposite <span class="operators">&</span><span class="operators">&</span><span class="operators">=</span> <span class="literal">true</span>
+exists <span class="operators">?</span><span class="operators">=</span> <span class="hash"><span class="hash_begin">{</span><span class="hash_end">}</span></span>
+<span class="punctuation">[</span>a<span class="punctuation">,</span>b<span class="punctuation">]</span> <span class="operators">=</span> o
+<span class="hash"><span class="hash_begin">{</span>a<span class="punctuation">,</span><span class="property">b<span class='punctuation'>:</span></span>c<span class="hash_end">}</span></span> <span class="operators">=</span> o
+o <span class="operators">=</span>
+  <span class="property">bar<span class='punctuation'>:</span></span> foo<span class="punctuation">,</span>
+  <span class="property">foo<span class='punctuation'>:</span></span> bar
+o <span class="operators">=</span> <span class="hash"><span class="hash_begin">{</span>a<span class="punctuation">,</span> b<span class="punctuation">,</span> <span class="property">c<span class='punctuation'>:</span></span> <span class="number">10</span><span class="hash_end">}</span></span>
+o <span class="operators">=</span> <span class="hash"><span class="hash_begin">{</span>
+  a<span class="punctuation">,</span>
+  b<span class="punctuation">,</span>
+  <span class="property">c<span class='punctuation'>:</span></span> <span class="number">10</span>
+<span class="hash_end">}</span></span></code></pre>
+<h2>Constants</h2>
+<p>To match ruby conventions, words in upper case will be marked as constant.</p>
+<pre><code><span class="constant">CONSTANT</span> <span class="operators">=</span> <span class="number">302</span>
+<span class="constant">I18n</span> <span class="operators">=</span> <span class="number">112</span>
+<span class="constant">NATIVES</span> <span class="operators">=</span> <span class="punctuation">[</span> <span class="constant">Date</span><span class="punctuation">,</span> <span class="constant">String</span><span class="punctuation">,</span> <span class="constant">Array</span><span class="punctuation">,</span> <span class="constant">JSON</span><span class="punctuation">,</span> <span class="constant">RegExp</span> <span class="punctuation">]</span>
+
+d <span class="operators">=</span> <span class="keyword">new</span> <span class="constant">Date</span> <span class="group"><span class="group_begin">(</span><span class="group_end">)</span></span>
+d<span class="punctuation">.</span>setDate<span class="group"><span class="group_begin">(</span><span class="group_end">)</span></span></code></pre>
+<h2>Conditions</h2>
+<pre><code>number <span class="operators">=</span> <span class="operators">-</span><span class="number">42</span> <span class="keyword">unless</span> opposite <span class="keyword">is</span> <span class="string"><span class="string_begin">'</span>foo<span class="string_end">'</span></span> <span class="keyword">and</span> <span class="keyword">typeof</span> bar <span class="keyword">isnt</span> <span class="string"><span class="string_begin">'</span>function<span class="string_end">'</span></span></code></pre>
+<h2>Functions</h2>
+<pre><code>square <span class="operators">=</span> <span class="group"><span class="group_begin">(</span>x<span class="group_end">)</span></span> <span class="function">-></span> x <span class="operators">*</span> x
+mouseup<span class="operators">=</span><span class="group"><span class="group_begin">(</span>e<span class="group_end">)</span></span><span class="function">=></span> <span class="literal">null</span>
+monade <span class="operators">=</span> <span class="group"><span class="group_begin">(</span>a<span class="group_end">)</span></span> <span class="function">-></span> <span class="group"><span class="group_begin">(</span>b<span class="group_end">)</span></span> <span class="function">-></span> <span class="group"><span class="group_begin">(</span>c<span class="group_end">)</span></span> <span class="function">-></span>
+noarity <span class="operators">=</span> <span class="function">-></span></code></pre>
+<h2>Selectors</h2>
+<pre><code><span class="punctuation">$</span><span class="group"><span class="group_begin">(</span><span class="string"><span class="string_begin">"</span>foo<span class="string_end">"</span></span><span class="group_end">)</span></span>
+<span class="punctuation">$</span><span class="punctuation">$</span><span class="group"><span class="group_begin">(</span><span class="string"><span class="string_begin">'</span>foo<span class="string_end">'</span></span><span class="group_end">)</span></span></code></pre>
+<h2>Prototype</h2>
+<pre><code><span class="property">@</span><span class="punctuation">:</span><span class="punctuation">:</span>__super__<span class="punctuation">.</span>defRGB
+<span class="property">Foo<span class='punctuation'>:</span></span><span class="punctuation">:</span>bar <span class="operators">=</span> <span class="function">-></span> foo<span class="group"><span class="group_begin">(</span><span class="group_end">)</span></span></code></pre>
+<h2>Interpolation</h2>
+<pre><code>single <span class="operators">=</span> <span class="string"><span class="string_begin">'</span>This is <span class="escaped">\'</span> not an <span class="string_quote">#{interpolation}</span><span class="string_end">'</span></span>
+single <span class="operators">=</span> <span class="string"><span class="string_begin">'</span>This is a string on
+multiple lines<span class="string_end">'</span></span>
+double <span class="operators">=</span> <span class="string"><span class="string_begin">"</span>And the <span class="escaped">\"</span> number is <span class="subst"><span class="subst_begin">#{</span> number <span class="operators">*</span> <span class="number">20</span> <span class="operators">*</span> <span class="property">@multiplier</span> <span class="subst_end">}</span></span><span class="string_end">"</span></span>
+double <span class="operators">=</span> <span class="string"><span class="string_begin">"</span>And the <span class="escaped">\"</span> number is <span class="subst"><span class="subst_begin">#{</span> foo <span class="string"><span class="string_begin">"</span>bar <span class="subst"><span class="subst_begin">#{</span> <span class="number">10</span> <span class="subst_end">}</span></span><span class="string_end">"</span></span> <span class="subst_end">}</span></span><span class="string_end">"</span></span>
+double <span class="operators">=</span> <span class="string"><span class="string_begin">"</span>And the <span class="escaped">\"</span> number is <span class="subst"><span class="subst_begin">#{</span> foo <span class="hash"><span class="hash_begin">{</span>a<span class="punctuation">,</span> <span class="property">b<span class='punctuation'>:</span></span> <span class="number">10</span><span class="hash_end">}</span></span> <span class="subst_end">}</span></span><span class="string_end">"</span></span>
+double <span class="operators">=</span> <span class="string"><span class="string_begin">"</span>And the <span class="escaped">\"</span> number is <span class="subst"><span class="subst_begin">#{</span> foo <span class="hash"><span class="hash_begin">{</span>a<span class="punctuation">,</span> <span class="property">b<span class='punctuation'>:</span></span> <span class="string"><span class="string_begin">"</span>foo <span class="subst"><span class="subst_begin">#{</span> <span class="hash"><span class="hash_begin">{</span><span class="property">c<span class='punctuation'>:</span></span> <span class="number">10</span><span class="hash_end">}</span></span> <span class="subst_end">}</span></span><span class="string_end">"</span></span><span class="hash_end">}</span></span> <span class="subst_end">}</span></span><span class="string_end">"</span></span></code></pre>
+<h2>Arrays</h2>
+<pre><code>list <span class="operators">=</span> <span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">]</span>
+list <span class="operators">=</span> <span class="punctuation">[</span><span class="number">0.</span><span class="number">.5</span><span class="punctuation">]</span></code></pre>
+<h2>Splats</h2>
+<pre><code>race <span class="operators">=</span> <span class="group"><span class="group_begin">(</span> winners<span class="punctuation">,</span> runners<span class="punctuation">.</span><span class="punctuation">.</span><span class="punctuation">.</span> <span class="group_end">)</span></span> <span class="function">-></span>
+  <span class="global">print</span> winner<span class="punctuation">,</span> runners</code></pre>
+<h2>Existence</h2>
+<pre><code>alert <span class="string"><span class="string_begin">"</span>I knew it!<span class="string_end">"</span></span> <span class="keyword">if</span> elvis<span class="operators">?</span></code></pre>
+<h2>Comprehensions</h2>
+<pre><code>cubes <span class="operators">=</span> math<span class="punctuation">.</span>cube num <span class="keyword">for</span> num <span class="keyword">in</span> list
+
+cubes <span class="operators">=</span> <span class="group"><span class="group_begin">(</span>math<span class="punctuation">.</span>cube num <span class="keyword">for</span> num <span class="keyword">in</span> list<span class="group_end">)</span></span></code></pre>
+<h2>Loops</h2>
+<pre><code><span class="group"><span class="group_begin">(</span>a<span class="operators">=</span> i; b <span class="operators">=</span> <span class="number">1</span><span class="operators">+</span>i; c <span class="operators">=</span> i<span class="operators">*</span><span class="number">2</span><span class="group_end">)</span></span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="punctuation">[</span><span class="number">0.</span><span class="number">.2</span><span class="punctuation">]</span>
+<span class="global">console</span><span class="punctuation">.</span>log k<span class="punctuation">,</span>v <span class="keyword">for</span> k<span class="punctuation">,</span>v <span class="keyword">of</span> hash</code></pre>
+<h2>Classes</h2>
+<pre><code><span class="class"><span class="keyword">class</span> <span class='title'>A</span></span> <span class="keyword">extends</span> <span class="constant">Module</span>
+<span class="class"><span class="keyword">class</span> <span class='title'>B</span></span> <span class="keyword">extends</span> <span class="constant">A</span>
+<span class="class"><span class="keyword">class</span> <span class='title'>Animal</span></span>
+  <span class="property">@static<span class='punctuation'>:</span></span> foo
+  <span class="property">property<span class='punctuation'>:</span></span><span class="number">10</span>
+
+  <span class="property">constructor<span class='punctuation'>:</span></span> <span class="group"><span class="group_begin">(</span><span class="property">@name</span> <span class="operators">=</span> <span class="string"><span class="string_begin">"</span>hello<span class="string_end">"</span></span><span class="group_end">)</span></span> <span class="function">-></span> <span class="property">@bar</span> <span class="operators">=</span> <span class="string"><span class="string_begin">"</span>foo<span class="string_end">"</span></span>
+
+  <span class="property">move<span class='punctuation'>:</span></span> <span class="group"><span class="group_begin">(</span>meters<span class="group_end">)</span></span> <span class="function">-></span>
+    alert <span class="string"><span class="string_begin">"</span><span class="subst"><span class="subst_begin">#{</span> <span class="property">@name</span> <span class="subst_end">}</span></span> moved <span class="subst"><span class="subst_begin">#{</span> meters <span class="subst_end">}</span></span>m.<span class="string_end">"</span></span>
+
+bud <span class="operators">=</span> <span class="keyword">new</span> <span class="constant">Animal</span></code></pre>
+<h2>Divisions</h2>
+<pre><code><span class="number">6<span class='operators'>/</span></span>foo<span class="operators">/</span>i
+<span class="number">6 <span class='operators'>/</span></span>foo
+<span class="number">6 <span class='operators'>/</span></span> foo
+<span class="number">6 <span class='operators'>/</span></span>foo <span class="operators">*</span> <span class="number">2<span class='operators'>/</span></span>gm
+f <span class="operators">/</span>foo
+f <span class="operators">/</span> foo <span class="operators">/</span> gm
+f <span class="operators">/</span>foo <span class="operators">*</span> <span class="number">2<span class='operators'>/</span></span><span class="number">6</span></code></pre>
+<h2>Regexps</h2>
+<pre><code>f <span class="regexp">/6 <span class="regexp_operators">*</span> 2/gm</span>
+f <span class="regexp">/foo <span class="regexp_operators">*</span> 2/gm</span>
+re <span class="operators">=</span> <span class="regexp">/<span class="regexp_operators">^</span>.<span class="regexp_operators">*</span>mymatch<span class="char_range"><span class="char_range_begin">[</span><span class="escaped">\s</span><span class="char_range_end">]</span></span><span class="regexp_operators">+</span><span class="regexp_operators">(</span>foo<span class="regexp_operators">)</span><span class="range"><span class="range_begin">{</span><span class="number">1</span><span class="punctuation">,</span><span class="number">5</span><span class="range_end">}</span></span><span class="escaped">\n</span><span class="regexp_operators">$</span>/gmi</span>
+re <span class="operators">=</span>  <span class="regexp">/<span class="char_range"><span class="char_range_begin">[</span>,?;.:/!Â§*%=<span class="escaped">\[</span><span class="escaped">\]</span>(){}'"`<span class="escaped">\\</span>_<>-^<span class="char_range_end">]</span></span>/g</span>
+args <span class="operators">=</span> <span class="punctuation">[</span><span class="regexp">/<span class="regexp_operators">^</span>default<span class="regexp_operators">$</span>/</span><span class="punctuation">,</span> <span class="string"><span class="string_begin">'</span>js<span class="string_end">'</span></span><span class="punctuation">]</span>
+args <span class="operators">=</span> <span class="punctuation">[</span><span class="regexp">/<span class="regexp_operators">^</span>default<span class="regexp_operators">$</span>/</span><span class="punctuation">]</span>
+args <span class="operators">=</span> <span class="hash"><span class="hash_begin">{</span><span class="property">re<span class='punctuation'>:</span></span> <span class="regexp">/<span class="regexp_operators">^</span>default<span class="regexp_operators">$</span>/</span><span class="hash_end">}</span></span>
+args <span class="operators">=</span> foo<span class="group"><span class="group_begin">(</span><span class="regexp">/<span class="regexp_operators">^</span><span class="escaped">\/</span><span class="char_range"><span class="char_range_begin">[</span>/<span class="char_range_end">]</span></span><span class="regexp_operators">$</span>/</span><span class="group_end">)</span></span>
+args <span class="operators">=</span> <span class="regexp">/default/</span><span class="punctuation">.</span>exec</code></pre>
+<h2>Heregex</h2>
+<pre><code>re <span class="operators">=</span> <span class="hereregexp"><span class="hereregexp_begin">///</span>foo<span class="subst"><span class="subst_begin">#{</span><span class="property">@bar</span><span class="subst_end">}</span></span><span class="hereregexp_end">///</span></span>
+re <span class="operators">=</span> <span class="hereregexp"><span class="hereregexp_begin">///</span> <span class="regexp_operators">^</span> <span class="regexp_operators">(</span>
+  <span class="subst"><span class="subst_begin">#{</span> <span class="property">@interpolated</span> coffee <span class="subst_end">}</span></span>
+  <span class="regexp_operators">?</span>: <span class="char_range"><span class="char_range_begin">[</span>-=<span class="char_range_end">]</span></span>>             <span class="comment"># function</span>
+  | <span class="char_range"><span class="char_range_begin">[</span>-+*/%<>&|^!?=<span class="char_range_end">]</span></span>=  <span class="comment"># compound assign / compare</span>
+  | >>>=<span class="regexp_operators">?</span>             <span class="comment"># zero-fill right shift</span>
+  | <span class="regexp_operators">(</span><span class="char_range"><span class="char_range_begin">[</span>^-+:<span class="char_range_end">]</span></span><span class="regexp_operators">)</span><span class="escaped">\1</span>        <span class="comment"># doubles</span>
+  | <span class="regexp_operators">(</span><span class="char_range"><span class="char_range_begin">[</span>&|<><span class="char_range_end">]</span></span><span class="regexp_operators">)</span><span class="escaped">\2</span>=<span class="regexp_operators">?</span>      <span class="comment"># logic / shift</span>
+  | <span class="escaped">\?</span><span class="escaped">\.</span>              <span class="comment"># soak access</span>
+  | <span class="escaped">\.</span><span class="range"><span class="range_begin">{</span><span class="number">2</span><span class="punctuation">,</span><span class="number">3</span><span class="range_end">}</span></span>           <span class="comment"># range or splat</span>
+  <span class="regexp_operators">(</span><span class="regexp_operators">?=</span>adf<span class="regexp_operators">)</span>             <span class="comment"># TODO foo</span>
+  <span class="escaped">\.</span>foo               <span class="comment"># FIXME foo</span>
+  <span class="regexp_operators">(?!</span>n<span class="regexp_operators">)</span>
+<span class="regexp_operators">)</span> <span class="hereregexp_end">///gi</span></span></code></pre>
+<h2>Block Comments</h2>
+<pre><code><span class="comment"><span class="comment_begin">###</span>
+
+  TODO something
+  FIXME something else
+
+  Some `code` in a block comment
+
+<span class="comment_end">###</span></span></code></pre>
+<h2>Heredocs</h2>
+<pre><code>heredocs_double <span class="operators">=</span> <span class="heredocs"><span class="heredocs_begin">"""</span>with interpolation <span class="subst"><span class="subst_begin">#{</span><span class="number">14</span> <span class="operators">*</span> foo<span class="punctuation">.</span>bar<span class="group"><span class="group_begin">(</span><span class="group_end">)</span></span><span class="subst_end">}</span></span><span class="heredocs_end">"""</span></span>
+heredocs_double <span class="operators">=</span> <span class="heredocs"><span class="heredocs_begin">"""</span>
+Hello "world" and 'world' and <span class="subst"><span class="subst_begin">#{</span> number <span class="operators">/</span> <span class="property">@divider</span> <span class="subst_end">}</span></span>
+<span class="heredocs_end">"""</span></span>
+
+heredocs_single <span class="operators">=</span> <span class="string"><span class="string_begin">'''</span>without <span class="string_quote">#{interpolation}</span><span class="string_end">'''</span></span>
+heredocs_single <span class="operators">=</span> <span class="string"><span class="string_begin">'''</span>
+Hello 'world' and "world" and not an <span class="string_quote">#{interpolation}</span>
+<span class="string_end">'''</span></span>
+
+
+<span class="comment">## Some documentation</span>
+<span class="comment">#### Some other documentation</span>
+<span class="comment">##### Deep title</span>
+<span class="comment"># TODO</span>
+<span class="comment"># FIXME</span>
+<span class="comment"># Some code `code` in a comment</span>
+<span class="comment">#</span>
+<span class="comment">#  1. Ordered list item 1</span>
+<span class="comment">#  2. Ordered list item 2</span>
+<span class="comment">#  3. Ordered list item 3</span>
+<span class="comment">#</span>
+<span class="comment">#  * Unordered list item</span>
+<span class="comment">#  + Unordered list item</span>
+<span class="comment">#  - Unordered list item</span>
+<span class="comment">#</span>
+<span class="comment"># But `1.`, `*`, `+` or `-` shouldn't be colored</span>
+<span class="comment"># when not preceded by two spaces.</span>
+<span class="comment">#</span>
+<span class="comment"># *italic*</span>
+<span class="comment"># **bold**</span>
+<span class="comment">#</span>
+<span class="comment"># Some code in the comments</span>
+<span class="comment">#</span>
+<span class="comment">#     # With comments</span>
+<span class="comment">#     class Foo</span>
+<span class="comment">#       constructor: -></span>
+<span class="comment">#         @bar = 10</span>
+<span class="comment">#         @foo = @bar * 1354</span>
+<span class="comment">#         @string = "kdsmflk"</span></code></pre>
+<h2>Embedded Javascript</h2>
+<pre><code><span class="embedded"><span class="embedded_begin">`</span>function () { return 'foo'; }<span class="embedded_end">`</span></span></code></pre>
+
