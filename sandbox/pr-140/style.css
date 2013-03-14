@@ -193,8 +193,11 @@ body > pre {
 
 .function,
 .params_begin,
-.params_end {
- color: #cb4b16;
+.params_end,
+.group_begin,
+.group_end {
+  color: #cb4b16;
+  font-weight: 400;
 }
 
 .keyword,
@@ -202,11 +205,9 @@ body > pre {
 .punctuation,
 .hash_begin,
 .hash_end,
+.property_begin,
 .property_end,
-.class,
-.group_begin,
-.group_end,
-.group_end {
+.class {
   color: #859900;
 }
 
