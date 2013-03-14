@@ -191,14 +191,17 @@ body > pre {
 
 /* NEW */
 
+.function,
+.params_begin,
+.params_end {
+ color: #cb4b16;
+}
+
 .keyword,
 .operators,
 .punctuation,
 .hash_begin,
 .hash_end,
-.function,
-.params_begin,
-.params_end,
 .property_end,
 .class,
 .group_begin,
@@ -264,7 +267,7 @@ body > pre {
 .subst_begin,
 .subst_end,
 .char_range {
-  color: #cb4b16;
+  color: #6c71c4;
 }
 
 .char_range > .escaped {
