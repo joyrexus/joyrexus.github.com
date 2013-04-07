@@ -1,4 +1,7 @@
 Joyrex Labs
 ===========
 
-Home of [joyrexus](https://github.com/joyrexus), gesture mechanic.
+Home of [joyrexus](https://twitter.com/joyrexus), gesture mechanic.
+
+* [gists](https://gist.github.com/joyrexus)
+* [repos](https://github.com/joyrexus)
