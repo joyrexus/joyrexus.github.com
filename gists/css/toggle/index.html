@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="toggle.css">
+<style>
+  #status { 
+    margin: 50px; 
+    font-size: 300px;
+    font-family: 'Helvetica Neue';
+    font-weight: 100;
+    color: #555;
+  }
+  .toggle {
+    margin: 20px;
+  }
+</style>
+<body onload="show();">
+<div class="toggle" onclick="show();">
+    <input type="checkbox" class="toggle-checkbox" id="toggle" checked>
+    <label class="toggle-label" for="toggle">
+        <div class="toggle-inner"></div>
+        <div class="toggle-switch"></div>
+    </label>
+</div>
+<div id="status"></div>
+<script>
+  $ = function(id) { return document.getElementById(id); }
+  show = function() { $("status").innerText = $("toggle").checked; }
+</script>
