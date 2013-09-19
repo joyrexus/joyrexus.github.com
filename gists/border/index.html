@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<script src="https://raw.github.com/joyrexus/sandbox/master/D3/border/lib.js"></script>
+<script src="http://joyrexus.github.io/sandbox/border/lib.js"></script>
 <style>
   @import url(http://fonts.googleapis.com/css?family=Roboto:700,300);
   body {
@@ -252,8 +252,8 @@
       .text(function(d) { return d; });
 
   queue()
-      .defer(d3.json, "https://raw.github.com/joyrexus/sandbox/master/D3/border/data/sectors.json")
-      .defer(d3.csv, "https://raw.github.com/joyrexus/sandbox/master/D3/border/data/staffing.csv")
+      .defer(d3.json, "http://joyrexus.github.io/sandbox/border/data/sectors.json")
+      .defer(d3.csv, "http://joyrexus.github.io/sandbox/border/data/staffing.csv")
       .await(ready);
 
   function ready(error, topology, data) {
@@ -308,7 +308,7 @@
     */
 
     terrain.append("image")
-        .attr("xlink:href", "https://raw.github.com/joyrexus/sandbox/master/D3/border/terrain.jpg")
+        .attr("xlink:href", "http://joyrexus.github.io/sandbox/border/terrain.jpg")
         .attr("clip-path", "url(#g-clip-land)")
         .attr("width", width)
         .attr("height", height);
