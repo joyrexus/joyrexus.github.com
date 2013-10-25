@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="lib/svg.js"></script>
+<link href="style.css" rel="stylesheet" />
+<body>
+  <div id="info">
+    <div id="left-panel">
+      <input type="file" id="chooser" />
+      <div id="file">Click and choose sample</div>
+      <div id="cursor">
+        <div id="time">Time (in seconds)</div>
+        <div id="value">Velocity (in mm/sec)</div>
+      </div>
+    </div>
+    <div id="viewer">
+      <div id="range">
+        <div id="begin">Begin</div>
+        <div id="end">End</div>
+      </div>
+      <svg id="hands" width=300 height="300">
+        <rect id="frame" class="border" width=300 height="300" />
+        <circle id="left" cx="100" cy="100" r="25" />
+        <circle id="right" cx="100" cy="100" r="25" />
+      </svg>
+    </div>
+  </div>
+  <div id="graph"></div>
+<script src="lib/animate.js"></script>
+<script src="lib/main.js"></script>

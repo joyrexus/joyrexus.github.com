@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://jashkenas.github.io/coffee-script/extras/coffee-script.js"></script>
+<body>
+  <svg>
+    <rect width="960" height="500" fill="none" stroke="#777" />
+    <circle cx="480" cy="20" r="20" fill="steelblue"/>
+  </svg>
+
+<script type="text/coffeescript">
+  min = 20    # min y-position
+  max = 480   # max y-position
+  pos = 20    # initial y-position
+  dir = 1     # initial direction
+  fps = 60    # frames per second
+  speed = 5   # number of pixels to move
+  delay = 1000 / fps
+  paused = false
+
+  ball = document.querySelector 'circle'
+  position = (y) => 
+    ball.cy.baseVal.value += y if y
+    ball.cy.baseVal.value
+
+  move = ->
+    dir *= -1 if (position() > max) or (position() < min)
+    position dir * speed
+
+  draw = ->
+    move()
+    setTimeout (-> window.requestAnimationFrame draw), delay
+
+  draw()  # use runFor(secs) to run animation for specified time
+
+  run = ->
+    move()
+    return if paused
+    window.requestAnimationFrame run
+
+  runFor = (secs=2) ->
+    setTimeout (-> paused = true), secs * 1000
+    run()
+ 
+</script>
