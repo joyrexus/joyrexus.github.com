@@ -21,5 +21,74 @@ The resulting sample file contains leap frame data saved as [line-delimited JSON
 
 ## Extracting position/velocity data
 
-Once you have a sample recorded, you can load and view it ...
+Once you have a sample recorded, you can load and view it in a web browser using our
+[viewer](http://joyrexus.github.io/sgm/tohf/index.html).  The viewer allows you
+to click and choose a local sample file (e.g. `sample.ldj`).  Once a sample
+file is loaded the viewer will render the recorded hand motions.  It also
+provides basic playback controls as well as the ability to specify particular
+regions of interest within the sample.
 
+Below we'll walk through an example to demonstrate the playback and selection
+process.
+
+After navigating to the [viewer](http://joyrexus.github.io/sgm/tohf/index.html) you'll see the following: 
+
+![choose file](1-choose.png)
+
+---
+
+You can use the spacebar to control playback by toggling pause/play.  You can
+also use the arrow keys to navigate through the rendered frames when playback is paused:
+
+* `spacebar` - pause/play
+* `up arrow` - go back 1 frame
+* `down arrow` - go forward 1 frame
+* `left arrow` - jump back 10 frames
+* `right arrow` - jump forward 10 frames
+
+The keyboard controls make it possible to identify specific regions of interest (i.e., durations of time) within the sample.  Once a region/duration is specified you can download a CSV file containing the postion/velocity data for that particular region for analysis.
+
+Using the playback controls, find the starting point of the region you want to
+analyze.  The viewer should be paused on whatever frame you want as the
+starting point.  Click the palm of the rendered hand to mark the starting time:
+
+![select start](2-start.png)
+
+---
+
+Similarly, identify the final frame of the region of interest and click the
+palm of the rendered hand to mark the stopping time:
+
+![select stop](3-stop.png)
+
+---
+
+In addition to starting and stopping times, a downward arrow button will
+appear.  Click this button to download the CSV file containing the
+position/velocity data for the selected region:
+
+![download file](4-download.png)
+
+---
+
+Your browser should indicate (typically in the lower left-hand corner) that the CSV data file was downloaded:
+
+![file indicator](5-file.png)
+
+---
+
+The CSV file should be downloaded automatically to your `Downloads` folder.
+[The resulting file](https://docs.google.com/spreadsheet/ccc?key=0AmrUeNvUdKG1dFlJbUdVRmVCbTNjcVFPUTFRdi1Kb3c&usp=sharing) will have a file name corresponding to the sample file that was loaded.  For example, if you loaded a file named `sample.ldj`, the resulting file will be named `sample.csv`. 
+
+This file will have one row per frame within the specified duration, with
+attributes for each frame in the following four columns:
+
+* `FRAME_ID` - the unique frame ID
+* `TIME` - timestamp in seconds
+* `Y_POS` - vertical position
+* `Y_VEL` - vertical velocity
+
+
+The screenshot below shows a sample data file.
+
+![csv data](6-data.png)
