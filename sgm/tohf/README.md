@@ -33,7 +33,7 @@ process.
 
 After navigating to the [viewer](http://joyrexus.github.io/sgm/tohf/index.html) you'll see the following: 
 
-![choose file](1-choose.png)
+![choose file](pix/1-choose.png)
 
 ---
 
@@ -52,14 +52,14 @@ Using the playback controls, find the starting point of the region you want to
 analyze.  The viewer should be paused on whatever frame you want as the
 starting point.  Click the palm of the rendered hand to mark the starting time:
 
-![select start](2-start.png)
+![select start](pix/2-start.png)
 
 ---
 
 Similarly, identify the final frame of the region of interest and click the
 palm of the rendered hand to mark the stopping time:
 
-![select stop](3-stop.png)
+![select stop](pix/3-stop.png)
 
 ---
 
@@ -67,13 +67,13 @@ In addition to starting and stopping times, a downward arrow button will
 appear.  Click this button to download the CSV file containing the
 position/velocity data for the selected region:
 
-![download file](4-download.png)
+![download file](pix/4-download.png)
 
 ---
 
 Your browser should indicate (typically in the lower left-hand corner) that the CSV data file was downloaded:
 
-![file indicator](5-file.png)
+![file indicator](pix/5-file.png)
 
 ---
 
@@ -91,4 +91,4 @@ attributes for each frame in the following four columns:
 
 The screenshot below shows a sample data file.
 
-![csv data](6-data.png)
+![csv data](pix/6-data.png)
