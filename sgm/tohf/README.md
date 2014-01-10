@@ -21,15 +21,13 @@ The resulting sample file contains leap frame data saved as [line-delimited JSON
 
 ## Extracting position/velocity data
 
-Once you have a sample recorded, you can load and view it in a web browser using our
-[viewer](http://joyrexus.github.io/sgm/tohf/index.html).  The viewer allows you
-to click and choose a local sample file (e.g. `sample.ldj`).  Once a sample
-file is loaded the viewer will render the recorded hand motions.  It also
-provides basic playback controls as well as the ability to specify particular
-regions of interest within the sample.
+Once you have a sample recorded, you can load and view it in a web browser using our [viewer](http://joyrexus.github.io/sgm/tohf/index.html).  The viewer allows you to click and choose a sample file you've saved (e.g. `sample.ldj`).  Once you've loaded your sample file in the viewer it will render the recorded hand motions.  You'll see the recorded hand gestures represented as a palm and a set of fingertips.
 
-Below we'll walk through an example to demonstrate the playback and selection
-process.
+The viewer also provides basic playback controls as well as the ability to specify particular regions of interest within the sample.
+
+Below we'll walk through an example to demonstrate the playback controls. We'll also demonstrate the process of selecting a region of interest (a subset of frames representing a duration of time within the full sample) so you can download the position/velocity data associated with that region. (Given our particular research question, we're only interested in the **vertical** position and velocity of the captured gesture.)
+
+---
 
 After navigating to the [viewer](http://joyrexus.github.io/sgm/tohf/index.html) you'll see the following: 
 
@@ -89,6 +87,6 @@ attributes for each frame in the following four columns:
 * `Y_VEL` - vertical velocity
 
 
-The screenshot below shows a sample data file.
+The screenshot below shows a [sample data file](https://docs.google.com/spreadsheet/ccc?key=0AmrUeNvUdKG1dFlJbUdVRmVCbTNjcVFPUTFRdi1Kb3c&usp=sharing). 
 
 ![csv data](pix/6-data.png)
