@@ -35,7 +35,15 @@ After navigating to the [viewer](http://joyrexus.github.io/sgm/tohf/index.html) 
 
 Once you've loaded your sample file in the viewer it will render the recorded hand motions.  You'll see the recorded hand gestures represented as a palm and a set of fingertips.
 
-The viewer provides basic playback controls as well as the ability to specify particular regions of interest within the sample.  You can use the spacebar to control playback by toggling pause/play.  You can also use the arrow keys to navigate through the rendered frames when playback is paused:
+
+![loaded file](pix/1.1-loaded.png)
+
+---
+
+The viewer provides basic playback controls as well as the ability to specify particular regions of interest within the sample.  
+
+The primary playback control is the spacebar, which toggles between a pause and
+play state.  You can also use the arrow keys to navigate through the rendered frames when playback is paused:
 
 * `spacebar` - pause/play
 * `up arrow` - go back 1 frame
@@ -43,7 +51,10 @@ The viewer provides basic playback controls as well as the ability to specify pa
 * `left arrow` - jump back 10 frames
 * `right arrow` - jump forward 10 frames
 
-The keyboard controls make it possible to identify specific regions of interest (i.e., durations of time) within the sample.  Once a region/duration is specified you can download a CSV file containing the postion/velocity data for that particular region for analysis.
+Additionally, you can use the range-slider to manually slide forward or
+backward in time within the sample.  
+
+The range-slider and keyboard controls make it possible to identify specific regions of interest (i.e., durations of time) within the sample.  Once a region/duration is specified you can download a CSV file containing the postion/velocity data for that particular region for analysis.
 
 Using the playback controls, find the starting point of the region you want to analyze.  The viewer should be paused on whatever frame you want as the starting point.  Click the palm of the rendered hand to mark the starting time:
 
@@ -56,7 +67,16 @@ palm of the rendered hand to mark the stopping time:
 
 ![select stop](pix/3-stop.png)
 
+In this example, we've now selected a duration of time extending from 1.37 to
+2.84 seconds.
+
 ---
+
+Note how the hand rendering utilizes the full screen width and height to
+make fine-grained gestural movement easier to perceive.  As a result, the hand
+rendering may partly overlap the playback controls, but in practice we haven't
+found this to be a problem.  (If we find it is a problem, we can constrain the
+hand rendering to a smaller viewing space.)
 
 In addition to starting and stopping times, a downward arrow button will
 appear.  Click this button to download the CSV file containing the
