@@ -21,11 +21,9 @@ The resulting sample file contains leap frame data saved as [line-delimited JSON
 
 ## Extracting position/velocity data
 
-Once you have a sample recorded, you can load and view it in a web browser using our [viewer](http://joyrexus.github.io/sgm/tohf/index.html).  The viewer allows you to click and choose a sample file you've saved (e.g. `sample.ldj`).  Once you've loaded your sample file in the viewer it will render the recorded hand motions.  You'll see the recorded hand gestures represented as a palm and a set of fingertips.
+Once you have a sample recorded, you can load and view it in a web browser using our [viewer](http://joyrexus.github.io/sgm/tohf/index.html).  The viewer allows you to click and choose a sample file you've saved (e.g. `sample.ldj`).  
 
-The viewer also provides basic playback controls as well as the ability to specify particular regions of interest within the sample.
-
-Below we'll walk through an example to demonstrate the playback controls. We'll also demonstrate the process of selecting a region of interest (a subset of frames representing a duration of time within the full sample) so you can download the position/velocity data associated with that region. (Given our particular research question, we're only interested in the **vertical** position and velocity of the captured gesture.)
+Below we'll walk through an example of loading a recorded sample, using the playback controls, and selecting a region of interest (a subset of frames representing a duration of time within the full sample). Once a region/duration is selected you can download the position/velocity data associated with that region. (Note: Given our particular research question, we're only interested in the **vertical** position and velocity of the captured gesture.)
 
 ---
 
@@ -35,8 +33,9 @@ After navigating to the [viewer](http://joyrexus.github.io/sgm/tohf/index.html) 
 
 ---
 
-You can use the spacebar to control playback by toggling pause/play.  You can
-also use the arrow keys to navigate through the rendered frames when playback is paused:
+Once you've loaded your sample file in the viewer it will render the recorded hand motions.  You'll see the recorded hand gestures represented as a palm and a set of fingertips.
+
+The viewer provides basic playback controls as well as the ability to specify particular regions of interest within the sample.  You can use the spacebar to control playback by toggling pause/play.  You can also use the arrow keys to navigate through the rendered frames when playback is paused:
 
 * `spacebar` - pause/play
 * `up arrow` - go back 1 frame
@@ -46,9 +45,7 @@ also use the arrow keys to navigate through the rendered frames when playback is
 
 The keyboard controls make it possible to identify specific regions of interest (i.e., durations of time) within the sample.  Once a region/duration is specified you can download a CSV file containing the postion/velocity data for that particular region for analysis.
 
-Using the playback controls, find the starting point of the region you want to
-analyze.  The viewer should be paused on whatever frame you want as the
-starting point.  Click the palm of the rendered hand to mark the starting time:
+Using the playback controls, find the starting point of the region you want to analyze.  The viewer should be paused on whatever frame you want as the starting point.  Click the palm of the rendered hand to mark the starting time:
 
 ![select start](pix/2-start.png)
 
@@ -85,7 +82,6 @@ attributes for each frame in the following four columns:
 * `TIME` - timestamp in seconds
 * `Y_POS` - vertical position
 * `Y_VEL` - vertical velocity
-
 
 The screenshot below shows a [sample data file](https://docs.google.com/spreadsheet/ccc?key=0AmrUeNvUdKG1dFlJbUdVRmVCbTNjcVFPUTFRdi1Kb3c&usp=sharing). 
 
