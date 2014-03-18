@@ -46,9 +46,8 @@
       switcher = get("switch");
       switcher.style.opacity = 0;
       switcher.style.visibility = "hidden";
-      set(trial);
-    }
-    if (trial === trials.length - 1) {
+      return set(trial);
+    } else if (trial === trials.length - 1) {
       return alert("Congratulations, you finished the task!");
     } else {
       return set(++trial);
