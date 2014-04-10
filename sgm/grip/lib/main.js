@@ -104,7 +104,7 @@
     var csv, range, start, stop, _ref;
     _ref = [currentRange.start, currentRange.stop], start = _ref[0], stop = _ref[1];
     range = queue.slice(start, +stop + 1 || 9e9);
-    csv = extract.velocity(range);
+    csv = extract.distance(range);
     download.href = 'data:attachment/csv,' + encodeURI(csv);
     return download.download = file.innerText.replace('.ldj', '.csv');
   };
