@@ -6,8 +6,7 @@
 
 ---
 
-Full-stack developer with extensive experience in social science research
-projects, overseeing all aspects of data curation and custom tooling.
+Full-stack developer with extensive experience overseeing all aspects of data curation and custom tooling in social science research projects. 
 
 
 ## EXPERIENCE
